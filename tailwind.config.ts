@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        caveat: ["var(--font-caveat)", "sanse-serif"],
+        plexMono: ["var(--font-plexMono)", "sanse-serif"]
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
