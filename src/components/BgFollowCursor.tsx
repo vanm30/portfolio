@@ -14,7 +14,7 @@ export default function BgFollowCursor() {
       const dy = position.y - smoothPosition.current.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      const smoothFactor = Math.min(0.1, Math.pow(distance, 0.1) / 100);
+      const smoothFactor = Math.min(0.1, Math.pow(distance, 0.1) / 101);
 
       smoothPosition.current.x += dx * smoothFactor;
       smoothPosition.current.y += dy * smoothFactor;
@@ -42,3 +42,4 @@ export default function BgFollowCursor() {
     ></div>
   );
 }
+
