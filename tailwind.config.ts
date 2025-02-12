@@ -10,11 +10,13 @@ export default {
     extend: {
       fontFamily: {
         caveat: ["var(--font-caveat)", "sanse-serif"],
-        plexMono: ["var(--font-plexMono)", "sanse-serif"]
+        plexMono: ["var(--font-plexMono)", "sanse-serif"],
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        black: "var(--black)",
+        white: "var(--white)",
+        blue: "var(--blue)",
+        yellow: "var(--yellow)",
       },
     },
   },

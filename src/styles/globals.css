@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /*Disable native scroll bar*/
 * {
   -ms-overflow-style: none;
@@ -12,7 +11,6 @@
 *::-webkit-scrollbar {
   display: none;
 }
-
 
 html {
   scroll-behavior: smooth; /* Enables smooth scrolling */
@@ -24,7 +22,10 @@ html {
   --background: #161825;
   --background2: #31263d48;
   --background3: #415a7528;
-  --foreground: #ededed;
+  --black: #2d2e47;
+  --white: #e0e0e0;
+  --blue: #8885d1;
+  --yellow: #e3b466;
 }
 
 body {
@@ -32,3 +33,4 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+

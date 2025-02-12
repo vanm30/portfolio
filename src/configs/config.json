@@ -1,0 +1,17 @@
+{
+  "ProjectName": "Portfolio",
+  "Projects": [
+    {
+      "name": "EVNT"
+    },
+    {
+      "name": "Text Analyzer"
+    },
+    {
+      "name": "Story Seeker"
+    },
+    {
+      "name": "Other stuff"
+    }
+  ]
+}

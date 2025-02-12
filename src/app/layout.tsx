@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${caveat.variable} ${plexMono.variable} font-plexMono antialiased`}
+        className={`${caveat.variable} ${plexMono.variable} font-plexMono antialiased text-white`}
       >
         <Navigation />
         {children}
