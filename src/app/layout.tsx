@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Caveat, IBM_Plex_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Navigation from "@/components/Navigation";
+import { Provider } from "react-redux";
+import { store } from "@/DataMgr/store";
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -28,10 +30,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${caveat.variable} ${plexMono.variable} font-plexMono antialiased text-white`}
+        className={`${caveat.variable} ${plexMono.variable} flex flex-col h-screen font-plexMono antialiased text-white`}
       >
-        <Navigation />
-        {children}
+        <Provider store={store}>
+          <Navigation />
+          <div className="self-center h-1 w-[80%] bg-yellow mb-8" />
+          {children}
+          <div className="self-center h-1 w-[80%] bg-yellow mb-12" />
+        </Provider>
       </body>
     </html>
   );

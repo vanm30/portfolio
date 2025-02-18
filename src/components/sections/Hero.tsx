@@ -2,11 +2,12 @@ import { TypeAnimation } from "react-type-animation";
 import BaseSection from "./BaseSection";
 
 export default function Hero() {
+  const TYPE_ANIMATION_SPEED_MS = 2500;
   return (
-    <BaseSection>
-      <h2 className="font-caveat font-bold text-6xl">
+    <BaseSection className="pt-16">
+      <h2 className="font-caveat font-bold text-6xl h-16">
         <TypeAnimation
-          sequence={["Yo!", 4000, "Hey!", 4000, "Hiii", 4000]}
+          sequence={["Yo!", TYPE_ANIMATION_SPEED_MS, "Hey!", TYPE_ANIMATION_SPEED_MS, "Hiii", TYPE_ANIMATION_SPEED_MS]}
           wrapper="span"
           speed={10}
           repeat={Infinity}

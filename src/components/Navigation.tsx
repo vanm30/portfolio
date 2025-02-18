@@ -1,12 +1,14 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-// interface INavigation {
-
-// }
+import { useSelector } from "react-redux";
+import { RootState } from "@/DataMgr/store";
+import config from "@/configs/config.json";
 
 export default function Navigation() {
+  const curSection = useSelector((state: RootState) => state.global.curSection);
+  const sections = config.Sections;
+
   return (
-    <nav className="absolute top-0 left-0 right-0 z-10 flex flex-row items-center py-4 px-16">
+    <nav className="z-10 flex flex-row items-center py-4 px-16">
       <div className="flex flex-1 text-white">
         <svg
           width="71"
@@ -30,10 +32,15 @@ export default function Navigation() {
         </svg>
       </div>
       <div className="flex gap-16">
-        <p>Projects</p>
-        <p>Skills</p>
-        <p>My CV</p>
-        <p>Get in Touch</p>
+        {sections.map((section, index: number) => (
+          <button
+            key={index}
+            className={`font-bold text-lg ${curSection === index ? "text-yellow" : "text-white"
+              }`}
+          >
+            {section}
+          </button>
+        ))}
       </div>
       <div className="flex flex-1 gap-4 justify-end">
         <FaGithub className="h-6 w-6" />

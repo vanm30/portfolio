@@ -39,16 +39,16 @@ export default function Home() {
   }, [currentScreen]);
 
   return (
-    <div className="relative h-screen">
+    <>
       <BgFollowCursor />
       <main
         ref={scrollRef}
-        className="text-sm h-screen overflow-y-auto snap-y snap-mandatory"
+        className="h-full text-sm overflow-y-auto snap-y snap-mandatory"
         onScroll={handleScroll}
       >
         <Hero />
         <Projects />
       </main>
-    </div>
+    </>
   );
 }

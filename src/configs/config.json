@@ -1,8 +1,13 @@
 {
   "ProjectName": "Portfolio",
+  "Sections": ["Hero", "Projects"],
   "Projects": [
     {
-      "name": "EVNT"
+      "name": "EVNT",
+      "description": "EVNT is a platform where users can explore various events, view detailed information, check out the latest news, and get updates from organizers during the event. It shows the schedule, lineup, and gives users the ability to purchase tickets directly. If someone can’t attend, they can sell their tickets to others. The platform also features an event map, allowing users to see the venue layout. Users can share events with friends, chat with them, and even see where they are during the event.",
+      "techStack": [
+        "React (Web), React Native (Mobile), NextJS, Websocket, Figma"
+      ]
     },
     {
       "name": "Text Analyzer"
