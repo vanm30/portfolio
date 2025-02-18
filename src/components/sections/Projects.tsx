@@ -1,4 +1,3 @@
-import BaseSection from "./BaseSection";
 import Image from "next/image";
 import config from "@/configs/config.json";
 import { useState } from "react";
@@ -6,7 +5,7 @@ import { motion } from "framer-motion";
 
 interface Project {
   name: string;
-  image?: string;  // image is optional
+  image?: string;
 }
 
 export default function Projects() {
@@ -20,7 +19,7 @@ export default function Projects() {
   const ANIMATION_DURATION = { seconds: 0.5, milliseconds: 500 };
 
   return (
-    <BaseSection>
+    <>
       <div className="flex flex-row gap-8">
         {
           config.Projects.map((project: Project, index) => (
@@ -60,6 +59,6 @@ export default function Projects() {
       <div className="flex flex-row flex-1">
 
       </div>
-    </BaseSection>
+    </>
   );
 }

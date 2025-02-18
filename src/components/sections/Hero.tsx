@@ -1,10 +1,9 @@
 import { TypeAnimation } from "react-type-animation";
-import BaseSection from "./BaseSection";
 
 export default function Hero() {
   const TYPE_ANIMATION_SPEED_MS = 2500;
   return (
-    <BaseSection className="pt-16">
+    <>
       <h2 className="font-caveat font-bold text-6xl h-16">
         <TypeAnimation
           sequence={["Yo!", TYPE_ANIMATION_SPEED_MS, "Hey!", TYPE_ANIMATION_SPEED_MS, "Hiii", TYPE_ANIMATION_SPEED_MS]}
@@ -22,6 +21,6 @@ export default function Hero() {
         also do UI/UX here. <br />I have about 2-3 years of experience in this
         field.
       </p>
-    </BaseSection>
+    </>
   );
 }

@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import config from '@/configs/config.json';
+
 
 interface GlobalState {
   curSection: number;
@@ -13,7 +15,18 @@ const globalSlice = createSlice({
   initialState,
   reducers: {
     setCurSection: (state, action: PayloadAction<number>) => {
-      state.curSection = action.payload;
+      const totalSections = config.Sections.length;
+
+      let newSection = action.payload;
+
+      if (newSection < 0) {
+        newSection = 0;
+      } else if (newSection >= totalSections) {
+        newSection = totalSections - 1;
+      }
+
+      state.curSection = newSection;
+      console.log('curSection:', state.curSection);
     },
   },
 });

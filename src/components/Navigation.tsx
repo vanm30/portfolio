@@ -1,11 +1,20 @@
+"use client";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { RootState } from "@/DataMgr/store";
+import { RootState } from "@/dataMgr/store";
 import config from "@/configs/config.json";
+import { useDispatch } from "react-redux";
+import { setCurSection } from "@/dataMgr/globalSlice";
 
 export default function Navigation() {
   const curSection = useSelector((state: RootState) => state.global.curSection);
   const sections = config.Sections;
+  const dispatch = useDispatch();
+
+  const handleSectionClick = (index: number) => {
+    dispatch(setCurSection(index));
+  };
 
   return (
     <nav className="z-10 flex flex-row items-center py-4 px-16">
@@ -37,6 +46,7 @@ export default function Navigation() {
             key={index}
             className={`font-bold text-lg ${curSection === index ? "text-yellow" : "text-white"
               }`}
+            onClick={() => handleSectionClick(index)}
           >
             {section}
           </button>
