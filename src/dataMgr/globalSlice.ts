@@ -10,26 +10,35 @@ const initialState: GlobalState = {
   curSection: 0,
 };
 
+
+const totalSections = config.Sections.length;
+
 const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
     setCurSection: (state, action: PayloadAction<number>) => {
-      const totalSections = config.Sections.length;
+      const newSection = action.payload;
 
-      let newSection = action.payload;
-
-      if (newSection < 0) {
-        newSection = 0;
-      } else if (newSection >= totalSections) {
-        newSection = totalSections - 1;
+      if (newSection >= 0 && newSection <= totalSections - 1) {
+        state.curSection = newSection;
       }
-
-      state.curSection = newSection;
-      console.log('curSection:', state.curSection);
+      console.log('setCurSection', state.curSection);
+    },
+    increaseSection: (state) => {
+      if (state.curSection < totalSections - 1) {
+        state.curSection++;
+      }
+      console.log('increaseSection', state.curSection);
+    },
+    decreaseSection: (state) => {
+      if (state.curSection > 0) {
+        state.curSection--;
+      }
+      console.log('decreaseSection', state.curSection);
     },
   },
 });
 
-export const { setCurSection } = globalSlice.actions;
+export const { setCurSection, increaseSection, decreaseSection } = globalSlice.actions;
 export default globalSlice.reducer;

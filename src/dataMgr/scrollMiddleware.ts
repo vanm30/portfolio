@@ -1,19 +1,23 @@
 import { Middleware } from '@reduxjs/toolkit';
-import { setCurSection } from './globalSlice';
+import { setCurSection, increaseSection, decreaseSection } from './globalSlice';
 
-const scrollMiddleware: Middleware = () => (next) => (action) => {
+const scrollMiddleware: Middleware = (store) => (next) => (action) => {
   const result = next(action);
-  if (setCurSection.match(action)) {
-    const sectionIndex = action.payload;
+  const curSection = store.getState().global.curSection;
 
-    const section = document.getElementById(`section-${sectionIndex}`);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  if (setCurSection.match(action) || increaseSection.match(action) || decreaseSection.match(action)) {
+    scrollToSection(curSection);
   }
 
   return result;
 };
+
+const scrollToSection = (sectionIndex: number) => {
+  const section = document.getElementById(`section-${sectionIndex}`);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 
 export default scrollMiddleware;
 

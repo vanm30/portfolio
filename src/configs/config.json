@@ -1,6 +1,9 @@
 {
   "ProjectName": "Portfolio",
-  "Sections": ["Hero", "Projects"],
+  "Sections": ["Hero", "Projects", "TechStack"],
+  "Timers": {
+    "Scroll": 350
+  },
   "Projects": [
     {
       "name": "EVNT",

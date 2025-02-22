@@ -35,7 +35,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <Navigation />
-          <div className="self-center h-1 w-[80%] bg-yellow mb-8" />
+          <div className="self-center h-1 w-[80%] bg-yellow" />
           {children}
           <div className="self-center h-1 w-[80%] bg-yellow mb-12" />
           <MouseWheelHandler />

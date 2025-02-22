@@ -8,6 +8,15 @@ const importSection = (component: string) => {
   return lazy(() => import(`@/components/sections/${component}`));
 }
 
+function FallBackView(sectionIndex: number) {
+  return (
+    <BaseSection sectionIndex={sectionIndex}>
+      <div>Loading...</div>
+    </BaseSection>
+  );
+}
+
+
 export default function Home() {
 
   return (
@@ -19,7 +28,9 @@ export default function Home() {
         {config.Sections.map((section, index) => {
           const Section = importSection(section);
           return (
-            <Suspense key={index} fallback={<div>Loading...</div>}>
+            <Suspense key={index} fallback={
+              FallBackView(index)
+            }>
               <BaseSection sectionIndex={index}>
                 <Section />
               </BaseSection>

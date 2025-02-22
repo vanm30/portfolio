@@ -12,7 +12,7 @@ export default function BaseSection({ children, className, sectionIndex }: IBase
   return (
     <div
       id={`section-${sectionIndex}`}
-      className={cslx("flex flex-col gap-8 h-full items-center px-14 ", className)}
+      className={cslx("flex flex-col gap-8 h-full items-center py-8 px-14 ", className)}
     >
       {children}
     </div>
