@@ -2,14 +2,38 @@ import Image from "next/image";
 import config from "@/configs/config.json";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Project } from "@/types/globals";
 
-interface Project {
-  name: string;
-  image?: string;
+function ProjectView({ project }: { project: Project }) {
+  return (
+    <div id={project.name} className="flex flex-row px-40">
+      <div className="flex flex-col basis-1/2 gap-8">
+        <h1 className="text-4xl font-bold">{project.name}</h1>
+        <p>{project.description}</p>
+      </div>
+      <div className="basis-1/2">
+        {
+          project.image && (
+            <Image
+              src={project.image}
+              width={400}
+              height={400}
+              alt={project.name}
+            />
+          )
+        }
+        {
+          project.techStack?.map((tech, index) => (
+            <span key={index}>{tech}</span>
+          ))
+        }
+      </div>
+    </div>
+  )
 }
 
 export default function Projects() {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [animating, setAnimating] = useState<boolean>(false);
 
   const hadleSelect = (index: number) => {
@@ -57,7 +81,7 @@ export default function Projects() {
         }
       </div>
       <div className="flex flex-row flex-1">
-
+        <ProjectView project={config.Projects[selectedIndex]} />
       </div>
     </>
   );
