@@ -2,31 +2,64 @@ import Image from "next/image";
 import config from "@/configs/config.json";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Project } from "@/types/globals";
+import { IProject } from "@/types/globals";
+import Button from "../Button";
+import TechStackText from "../TechStackText";
 
-function ProjectView({ project }: { project: Project }) {
+function ProjectView({ project }: { project: IProject }) {
   return (
-    <div id={project.name} className="flex flex-row px-40">
+    <div id={project.name} className="flex flex-row px-40 mt-10">
       <div className="flex flex-col basis-1/2 gap-8">
         <h1 className="text-4xl font-bold">{project.name}</h1>
-        <p>{project.description}</p>
-      </div>
-      <div className="basis-1/2">
+        <p>{project.description1}</p>
         {
-          project.image && (
-            <Image
-              src={project.image}
-              width={400}
-              height={400}
-              alt={project.name}
-            />
+          project.description2 && (
+            <p>{project.description2}</p>
           )
         }
-        {
-          project.techStack?.map((tech, index) => (
-            <span key={index}>{tech}</span>
-          ))
-        }
+        {project.links && (
+          <div className="flex flex-row gap-8">
+            {project.links.map((link, index) => (
+              <Button key={index} type={index > 0 ? "secondary" : "primary"} disabled={false} onClick={() => window.open(link.url, "_blank")}>
+                {link.name}
+              </Button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col basis-1/2">
+        <div className="basis-2/3">
+          {
+            project.image && (
+              <Image
+                src={project.image}
+                width={400}
+                height={400}
+                alt={project.name}
+              />
+            )
+          }
+        </div>
+        <div className="basis-1/3 relative shrink-0">
+          {project.techStack?.map((text, index) => {
+            const verticalPosition = 30 + Math.sin(index * 1.5) * 30;  // Subtle vertical spread with more space
+
+            const horizontalPosition = (index * 8) + Math.tan(index + 1); // Slight horizontal spread with more room
+
+            return (
+              <TechStackText
+                key={index}
+                text={text}
+                style={{
+                  position: 'absolute',
+                  top: `${verticalPosition}%`,  // Controlled vertical positioning
+                  left: `${horizontalPosition}%`,  // Controlled horizontal spread
+                }}
+              />
+            );
+          })}
+        </div>
+
       </div>
     </div>
   )

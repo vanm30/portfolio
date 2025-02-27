@@ -3,8 +3,6 @@ import { Caveat, IBM_Plex_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Navigation from "@/components/Navigation";
 import ReduxProvider from "@/providers/ReduxProvider";
-import MouseWheelHandler from "@/components/MouseWheelHandler";
-
 
 const caveat = Caveat({
   variable: "--font-caveat",
@@ -38,7 +36,6 @@ export default function RootLayout({
           <div className="self-center h-1 w-[80%] bg-yellow" />
           {children}
           <div className="self-center h-1 w-[80%] bg-yellow mb-12" />
-          <MouseWheelHandler />
         </ReduxProvider>
       </body>
     </html>

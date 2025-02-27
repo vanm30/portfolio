@@ -8,9 +8,29 @@
     {
       "name": "EVNT",
       "path": "@/components/projects/evnt",
-      "description": "EVNT is a platform where users can explore various events, view detailed information, check out the latest news, and get updates from organizers during the event. It shows the schedule, lineup, and gives users the ability to purchase tickets directly. If someone can’t attend, they can sell their tickets to others. The platform also features an event map, allowing users to see the venue layout. Users can share events with friends, chat with them, and even see where they are during the event.",
+      "description1": "EVNT is a platform where users can explore various events, view detailed information, check out the latest news, and get updates from organizers during the event. It shows the schedule, lineup, and gives users the ability to purchase tickets directly. If someone can’t attend, they can sell their tickets to others. The platform also features an event map, allowing users to see the venue layout. Users can share events with friends, chat with them, and even see where they are during the event.",
+      "description2": "Test",
       "techStack": [
-        "React (Web), React Native (Mobile), Expo, Websocket, Figma"
+        "Next.js",
+        "Expo",
+        "Nest.js",
+        "PostgreSQL",
+        "Test1",
+        "Test1",
+        "Test1",
+        "test2"
+      ],
+      "links": [
+        {
+          "name": "Website",
+          "type": "primary",
+          "url": ""
+        },
+        {
+          "name": "Github",
+          "type": "secondary",
+          "url": ""
+        }
       ]
     },
     {
